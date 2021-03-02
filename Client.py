@@ -23,7 +23,7 @@ def encrypt_block(sixteen,key):
 def encrypt(message, iterations):
     # general encryption function. Treats and formats text from message and manages message length by reducing size
     # until message length is zero
-    key = "12345678"
+    key = "XTGPOITJ"
     # additionally manages iterations and updated message after encryption
     if len(message) % 2 == 1:
         padding = 1
@@ -60,6 +60,7 @@ while True:
     mes = raw_input()
     mes = main_encrypt(mes)
     MESSAGE = bytes(mes)
+    print(MESSAGE)
 
 
     sock = socket.socket(socket.AF_INET, # Internet
