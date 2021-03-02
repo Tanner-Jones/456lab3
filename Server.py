@@ -20,6 +20,6 @@ while True:
     if len(message_list) > 5:
         message_list.pop(5)
     for message in message_list:
-        print(message_list.index(message), message, time.time())
+        print(message_list.index(message), message, time.ctime(time.time()))
         time.sleep(2)
         sock2.sendto(bytes(message), (addr[0], UDP_PORT_SEND))
