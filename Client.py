@@ -47,7 +47,7 @@ def encrypt(message, iterations):
 # Press the green button in the gutter to run the script.
 def main_encrypt(mes):
     # Main function to start script.
-    message_final = encrypt(mes, 8)
+    message_final = encrypt(bytearray(mes), 8)
     return mes
 
 
