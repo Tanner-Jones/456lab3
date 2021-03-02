@@ -12,7 +12,7 @@ MESSAGE = bytes(sys.argv[2])
 sock = socket.socket(socket.AF_INET, # Internet
                      socket.SOCK_DGRAM) # UDP
 sock.sendto(MESSAGE, (UDP_IP, UDP_PORT_SEND))
-sock.shutdown()
+sock.close()
 
 time.sleep(1)
 sock2 = socket.socket(socket.AF_INET, # Internet
