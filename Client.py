@@ -28,6 +28,8 @@ while True:
             data, addr = sock2.recvfrom(1024)
         except socket.timeout:
             break
+        except socket.error:
+            break
         print(data)
         if time.time() > (current_time + 10):
             break
