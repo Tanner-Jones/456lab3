@@ -5,6 +5,7 @@ UDP_IP = socket.gethostname()
 UDP_PORT_RECEIVE = 5005
 UDP_PORT_SEND = 5006
 
+print(UDP_IP)
 sock = socket.socket(socket.AF_INET, # Internet
                      socket.SOCK_DGRAM) # UDP
 sock.bind((UDP_IP, UDP_PORT_RECEIVE))
