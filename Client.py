@@ -24,6 +24,7 @@ def encrypt(message, iterations):
     # general encryption function. Treats and formats text from message and manages message length by reducing size
     # until message length is zero
     key = "12345678"
+    print(message)
     # additionally manages iterations and updated message after encryption
     if len(message) % 2 == 1:
         padding = 1
@@ -46,7 +47,7 @@ def encrypt(message, iterations):
     return message
 
 def main_encrypt(mes):
-    message_final = encrypt(bytearray(buffer(mes)), 8)
+    message_final = encrypt(bytearray([mes]), 8)
     return message_final
 
 
