@@ -14,7 +14,6 @@ message_list = []
 while True:
     data, addr = sock.recvfrom(1024) # buffer size is 1024 bytes
     print("\nRecent Messages:")
-    print(type(addr[0]))
     message_list.insert(0, data)
     sock2 = socket.socket(socket.AF_INET,  # Internet
                          socket.SOCK_DGRAM)  # UDP
@@ -22,4 +21,5 @@ while True:
         message_list.pop(5)
     for message in message_list:
         print(message_list.index(message), message, time.time())
+        time.sleep(2)
         sock2.sendto(bytes(message), (addr[0], UDP_PORT_SEND))
