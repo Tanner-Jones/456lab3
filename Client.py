@@ -21,6 +21,7 @@ while True:
     sock2 = socket.socket(socket.AF_INET, # Internet
                      socket.SOCK_DGRAM) # UDP
     sock2.bind((HOSTNAME, UDP_PORT_RECEIVE))
+    sock2.settimeout(10)
     current_time = time.time()
     while True:
         data, addr = sock2.recvfrom(1024)
