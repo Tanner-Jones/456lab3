@@ -1,7 +1,7 @@
 import socket
 import sys
 import time
-import struct
+import codecs
 
 
 def check_to_pad(message):
@@ -38,8 +38,8 @@ def encrypt(message, iterations):
         while (length > 0):
             sixteen = message[0:2]
             newSixteen = encrypt_block(sixteen,key[i])
-            encryptedMessage.append(struct.unpack('>HH', newSixteen[0]))
-            encryptedMessage.append(struct.unpack('>HH', newSixteen[1]))
+            encryptedMessage.append(int(codecs.encode(newSixteen[0], 'hex')))
+            encryptedMessage.append(int(codecs.encode(newSixteen[1], 'hex')))
             del message[0]
             del message[0]
             length = len(message)
