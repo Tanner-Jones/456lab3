@@ -59,6 +59,7 @@ UDP_PORT_RECEIVE = 4444
 while True:
     print("Enter Message:")
     mes = raw_input()
+    print(mes)
     mes = main_encrypt(mes)
     MESSAGE = bytes(mes)
 
