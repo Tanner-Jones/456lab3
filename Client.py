@@ -2,6 +2,55 @@ import socket
 import sys
 import time
 
+
+
+def check_to_pad(message):
+    # Function to account for odd number of blocks
+    # Pads end with a null character to be removed on decryption
+    if (len(message) % 2 == 1):
+        message.append(0)
+        return message
+    else:
+        return message
+
+def encrypt_block(sixteen,key):
+    # Block encryption takes place within this function
+    # Encryption protocol based on what lab asks for
+    newRight = sixteen[0] ^ ord(key)
+    newSixteen = bytes([sixteen[1]]) + bytes([newRight])
+    return newSixteen
+
+def encrypt(message, iterations):
+    # general encryption function. Treats and formats text from message and manages message length by reducing size
+    # until message length is zero
+
+    # additionally manages iterations and updated message after encryption
+    if len(message) % 2 == 1:
+        padding = 1
+    else:
+        padding = 0
+    check_to_pad(message)
+    for i in range(0, iterations):
+        encryptedMessage = bytearray()
+        length = len(message)
+        while (length > 0):
+            sixteen = message[0:2]
+            newSixteen = encrypt_block(sixteen,key[i])
+            encryptedMessage.append(int(newSixteen[0]))
+            encryptedMessage.append(int(newSixteen[1]))
+            del message[0]
+            del message[0]
+            length = len(message)
+        message = encryptedMessage
+    return message
+
+# Press the green button in the gutter to run the script.
+def main_encrypt(mes):
+    # Main function to start script.
+    message_final = encrypt(mes, 8)
+    return mes
+
+
 UDP_IP = sys.argv[1]
 HOSTNAME = socket.gethostname()
 UDP_PORT_SEND = 5005
@@ -10,6 +59,7 @@ UDP_PORT_RECEIVE = 4444
 while True:
     print("Enter Message:")
     mes = raw_input()
+    mes = main_encrypt(mes)
     MESSAGE = bytes(mes)
 
 
@@ -21,7 +71,7 @@ while True:
     sock2 = socket.socket(socket.AF_INET, # Internet
                      socket.SOCK_DGRAM) # UDP
     sock2.bind((HOSTNAME, UDP_PORT_RECEIVE))
-    sock2.settimeout(10)
+    sock2.settimeout(5)
     current_time = time.time()
     while True:
         try:
