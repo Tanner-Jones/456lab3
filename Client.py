@@ -18,7 +18,6 @@ def encrypt_block(sixteen,key):
     # Encryption protocol based on what lab asks for
     newRight = sixteen[0] ^ ord(key)
     newSixteen = bytearray([sixteen[1]]) + bytearray([newRight])
-    print(type(newSixteen))
     return newSixteen
 
 def encrypt(message, iterations):
@@ -39,7 +38,6 @@ def encrypt(message, iterations):
             newSixteen = encrypt_block(sixteen,key[i])
             encryptedMessage.append(newSixteen[0])
             encryptedMessage.append(newSixteen[1])
-            print(encryptedMessage)
             del message[0]
             del message[0]
             length = len(message)
