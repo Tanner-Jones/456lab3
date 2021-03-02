@@ -13,6 +13,7 @@ sock = socket.socket(socket.AF_INET, # Internet
                      socket.SOCK_DGRAM) # UDP
 sock.sendto(MESSAGE, (UDP_IP, UDP_PORT_SEND))
 
+time.sleep(1)
 sock2 = socket.socket(socket.AF_INET, # Internet
                      socket.SOCK_DGRAM) # UDP
 sock2.bind((HOSTNAME, UDP_PORT_RECEIVE))
