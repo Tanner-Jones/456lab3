@@ -36,19 +36,17 @@ def encrypt(message, iterations):
         while (length > 0):
             sixteen = message[0:2]
             newSixteen = encrypt_block(sixteen,key[i])
-            encryptedMessage.append(int(newSixteen[0]))
-            encryptedMessage.append(int(newSixteen[1]))
+            encryptedMessage.append(newSixteen[0])
+            encryptedMessage.append(newSixteen[1])
             del message[0]
             del message[0]
             length = len(message)
         message = encryptedMessage
     return message
 
-# Press the green button in the gutter to run the script.
 def main_encrypt(mes):
-    # Main function to start script.
     message_final = encrypt(bytearray([mes]), 8)
-    return mes
+    return message_final
 
 
 UDP_IP = sys.argv[1]
