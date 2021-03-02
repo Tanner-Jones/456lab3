@@ -24,7 +24,10 @@ while True:
     sock2.settimeout(10)
     current_time = time.time()
     while True:
-        data, addr = sock2.recvfrom(1024)
+        try:
+            data, addr = sock2.recvfrom(1024)
+        except socket.timeout:
+            break
         print(data)
         if time.time() > (current_time + 10):
             break
