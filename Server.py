@@ -21,5 +21,7 @@ while True:
         message_list.pop(5)
     for message in message_list:
         print(message_list.index(message), message, time.ctime(time.time()))
-        time.sleep(2)
+        message = str(message_list.index(message)) + ":" + message + ",IP: " + addr[0] + "Time:" + \
+                  str(time.ctime(time.time()))
+        time.sleep(1)
         sock2.sendto(bytes(message), (addr[0], UDP_PORT_SEND))
