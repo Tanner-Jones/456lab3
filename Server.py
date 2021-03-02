@@ -23,5 +23,5 @@ while True:
         message_send = str(message_list.index(message) + 1) + ": " + message + ", IP: " + addr[0] + " Time: " + \
                   str(time.ctime(time.time()))
         print(message_send)
-        time.sleep(1)
+        time.sleep(2)
         sock2.sendto(bytes(message_send), (addr[0], UDP_PORT_SEND))
