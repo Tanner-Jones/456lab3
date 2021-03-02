@@ -36,7 +36,9 @@ def encrypt(message, iterations):
         while (length > 0):
             sixteen = message[0:2]
             newSixteen = encrypt_block(sixteen,key[i])
-            print(newSixteen)
+            print(type(newSixteen[0]))
+            print(newSixteen[0])
+            print(newSixteen[1])
             encryptedMessage.append(int(newSixteen[0]))
             encryptedMessage.append(int(newSixteen[1]))
             del message[0]
@@ -59,7 +61,6 @@ UDP_PORT_RECEIVE = 4444
 while True:
     print("Enter Message:")
     mes = raw_input()
-    print(mes)
     mes = main_encrypt(mes)
     MESSAGE = bytes(mes)
 
