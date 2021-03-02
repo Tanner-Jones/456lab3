@@ -40,6 +40,7 @@ def encrypt(message, iterations):
             newSixteen = encrypt_block(sixteen,key[i])
             encryptedMessage.append(newSixteen[0])
             encryptedMessage.append(newSixteen[1])
+            print(encryptedMessage)
             del message[0]
             del message[0]
             length = len(message)
