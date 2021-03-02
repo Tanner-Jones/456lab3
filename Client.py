@@ -58,7 +58,6 @@ while True:
     mes = raw_input()
     mes = main_encrypt(mes)
     MESSAGE = bytes(mes)
-    print(MESSAGE)
 
 
     sock = socket.socket(socket.AF_INET, # Internet
