@@ -16,7 +16,7 @@ def check_to_pad(message):
 def encrypt_block(sixteen,key):
     # Block encryption takes place within this function
     # Encryption protocol based on what lab asks for
-    newRight = sixteen[0] ^ ord(key)
+    newRight = sixteen[0] ^ key
     newSixteen = bytes([sixteen[1]]) + bytes([newRight])
     return newSixteen
 
