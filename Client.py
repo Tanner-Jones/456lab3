@@ -16,7 +16,7 @@ def check_to_pad(message):
 def encrypt_block(sixteen,key):
     # Block encryption takes place within this function
     # Encryption protocol based on what lab asks for
-    newRight = sixteen[0] ^ key
+    newRight = sixteen[0] ^ ord(key)
     newSixteen = bytes([sixteen[1]]) + bytes([newRight])
     return newSixteen
 
@@ -24,7 +24,6 @@ def encrypt(message, iterations):
     # general encryption function. Treats and formats text from message and manages message length by reducing size
     # until message length is zero
     key = "12345678"
-    key = bytearray(key)
     # additionally manages iterations and updated message after encryption
     if len(message) % 2 == 1:
         padding = 1
@@ -48,7 +47,7 @@ def encrypt(message, iterations):
 # Press the green button in the gutter to run the script.
 def main_encrypt(mes):
     # Main function to start script.
-    message_final = encrypt(bytearray(mes), 8)
+    message_final = encrypt(bytearray([mes]), 8)
     return mes
 
 
