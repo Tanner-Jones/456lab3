@@ -8,7 +8,8 @@ UDP_PORT_SEND = 5005
 UDP_PORT_RECEIVE = 4444
 
 while True:
-    mes = input("Enter Message:")
+    print("Enter Message:")
+    mes = input()
     MESSAGE = bytes(mes)
 
 
