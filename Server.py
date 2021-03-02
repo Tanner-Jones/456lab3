@@ -17,11 +17,12 @@ while True:
     message_list.insert(0, data)
     sock2 = socket.socket(socket.AF_INET,  # Internet
                          socket.SOCK_DGRAM)  # UDP
+    time.sleep(2)
+    sock2.sendto(bytes("\nRecent Messages:"))
     if len(message_list) > 5:
         message_list.pop(5)
     for message in message_list:
         message_send = str(message_list.index(message) + 1) + ": " + message + ", IP: " + addr[0] + " Time: " + \
                   str(time.ctime(time.time()))
         print(message_send)
-        time.sleep(2)
         sock2.sendto(bytes(message_send), (addr[0], UDP_PORT_SEND))
