@@ -1,7 +1,6 @@
 import socket
 import sys
 import time
-import struct
 
 
 def check_to_pad(message):
