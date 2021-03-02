@@ -7,7 +7,7 @@ UDP_PORT_SEND = 5006
 
 sock = socket.socket(socket.AF_INET, # Internet
                      socket.SOCK_DGRAM) # UDP
-sock.bind((UDP_IP, UDP_PORT))
+sock.bind((UDP_IP, UDP_PORT_RECEIVE))
 message_list = []
 
 while True:
