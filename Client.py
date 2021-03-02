@@ -46,7 +46,7 @@ def encrypt(message, iterations):
     return message
 
 def main_encrypt(mes):
-    message_final = encrypt(bytearray([mes]), 8)
+    message_final = encrypt(bytearray(buffer(mes)), 8)
     return message_final
 
 
