@@ -41,7 +41,6 @@ def encrypt(message, iterations):
             del message[0]
             length = len(message)
         message = encryptedMessage
-    print(message)
     return message
 
 def main_encrypt(mes):
