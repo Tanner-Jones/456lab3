@@ -20,7 +20,7 @@ while True:
     if len(message_list) > 5:
         message_list.pop(5)
     for message in message_list:
-        message_send = str(message_list.index(message)) + ":" + message + ",IP: " + addr[0] + "Time:" + \
+        message_send = str(message_list.index(message) + 1) + ": " + message + " ,IP: " + addr[0] + " Time: " + \
                   str(time.ctime(time.time()))
         print(message_send)
         time.sleep(1)
