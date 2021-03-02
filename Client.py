@@ -35,8 +35,8 @@ def encrypt(message, iterations):
         length = len(message)
         while (length > 0):
             sixteen = message[0:2]
-            print(sixteen)
             newSixteen = encrypt_block(sixteen,key[i])
+            print(newSixteen)
             encryptedMessage.append(int(newSixteen[0]))
             encryptedMessage.append(int(newSixteen[1]))
             del message[0]
