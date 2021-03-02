@@ -16,6 +16,8 @@ while True:
     print("\nRecent Messages:")
     print(addr[0])
     message_list.insert(0, data)
+    sock2 = socket.socket(socket.AF_INET,  # Internet
+                         socket.SOCK_DGRAM)  # UDP
     if len(message_list) > 5:
         message_list.pop(5)
     for message in message_list:
