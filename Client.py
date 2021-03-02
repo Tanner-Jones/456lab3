@@ -9,7 +9,7 @@ UDP_PORT_RECEIVE = 4444
 
 while True:
     print("Enter Message:")
-    mes = input()
+    mes = raw_input()
     MESSAGE = bytes(mes)
 
 
