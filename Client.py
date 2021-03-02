@@ -1,7 +1,7 @@
 import socket
 import sys
 import time
-import codecs
+import struct
 
 
 def check_to_pad(message):
@@ -18,9 +18,7 @@ def encrypt_block(sixteen,key):
     # Encryption protocol based on what lab asks for
     newRight = sixteen[0] ^ ord(key)
     newSixteen = bytes([sixteen[1]]) + bytes([newRight])
-    print(bytes(sixteen[1]))
-    print(bytes(newRight))
-    print(newSixteen)
+    print(type(newSixteen))
     return newSixteen
 
 def encrypt(message, iterations):
@@ -39,8 +37,8 @@ def encrypt(message, iterations):
         while (length > 0):
             sixteen = message[0:2]
             newSixteen = encrypt_block(sixteen,key[i])
-            encryptedMessage.append(newSixteen[0])
-            encryptedMessage.append(newSixteen[1])
+            encryptedMessage.append(struct.unpack('>H', newSixteen[0]))
+            encryptedMessage.append(struct.unpack('>H', newSixteen[1]))
             print(encryptedMessage)
             del message[0]
             del message[0]
