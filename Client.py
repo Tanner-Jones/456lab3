@@ -3,7 +3,7 @@ import sys
 
 UDP_IP = sys.argv[1]
 UDP_PORT = 5005
-MESSAGE = b"Hello, World!"
+MESSAGE = bytes(sys.argv[2])
 
 
 sock = socket.socket(socket.AF_INET, # Internet
