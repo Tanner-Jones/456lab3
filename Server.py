@@ -13,6 +13,8 @@ message_list = []
 
 while True:
     data, addr = sock.recvfrom(1024) # buffer size is 1024 bytes
+    print("\nRecent Messages:")
+    print(addr)
     message_list.insert(0, data)
     if len(message_list) > 5:
         message_list.pop(5)
