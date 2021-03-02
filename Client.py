@@ -17,7 +17,7 @@ def encrypt_block(sixteen,key):
     # Block encryption takes place within this function
     # Encryption protocol based on what lab asks for
     newRight = sixteen[0] ^ ord(key)
-    newSixteen = bytes([sixteen[1]]) + bytes([newRight])
+    newSixteen = bytearray([sixteen[1]]) + bytearray([newRight])
     print(type(newSixteen))
     return newSixteen
 
@@ -37,8 +37,8 @@ def encrypt(message, iterations):
         while (length > 0):
             sixteen = message[0:2]
             newSixteen = encrypt_block(sixteen,key[i])
-            encryptedMessage.append(struct.unpack('>H', newSixteen[0]))
-            encryptedMessage.append(struct.unpack('>H', newSixteen[1]))
+            encryptedMessage.append(newSixteen[0])
+            encryptedMessage.append(newSixteen[1])
             print(encryptedMessage)
             del message[0]
             del message[0]
