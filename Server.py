@@ -3,7 +3,7 @@ import time
 
 UDP_IP = socket.gethostname()
 UDP_PORT_RECEIVE = 5005
-UDP_PORT_SEND = 5006
+UDP_PORT_SEND = 4444
 
 print(UDP_IP)
 sock = socket.socket(socket.AF_INET, # Internet

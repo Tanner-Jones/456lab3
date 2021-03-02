@@ -5,7 +5,7 @@ import time
 UDP_IP = sys.argv[1]
 HOSTNAME = socket.gethostname()
 UDP_PORT_SEND = 5005
-UDP_PORT_RECEIVE = 5006
+UDP_PORT_RECEIVE = 4444
 MESSAGE = bytes(sys.argv[2])
 
 
