@@ -22,4 +22,4 @@ while True:
         message_list.pop(5)
     for message in message_list:
         print(message_list.index(message), message, time.time())
-        sock.sendto(message, (addr[0], UDP_PORT_SEND))
+        sock.sendto(bytes(message), (addr[0], UDP_PORT_SEND))
